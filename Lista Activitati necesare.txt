@@ -1,0 +1,11 @@
+1. Ecran login
+2. Activitate principala: Newsfeed
+3. Activitate creare poveste: un chat de grup
+4. Activitate display poveste (completa sau in curs de dezvoltare)
+5. Activitate display descriere poveste: titlu, descriere (optional), 
+	initiator, participanti +
+	buton de Join (daca nu este membru) sau Invite (daca este membru si are dreptul sa invite)
+6. Activitate creare poveste: setare campuri titlu, descriere (optional), 
+	initiator, participanti
+7. Activitate display lista povesti ale utilizatorului curent: eventual separare cele incheiate
+('History') de cele in curs de desfasurare ('Current')

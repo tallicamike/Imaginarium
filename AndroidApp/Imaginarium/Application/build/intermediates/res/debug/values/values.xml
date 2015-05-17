@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <!-- From: file:/home/cristina/AndroidStudioProjects/newGithub/Imaginarium/AndroidApp/Imaginarium/Application/src/main/res/values/dimens.xml -->
+    <!-- From: file:/home/cristina/Downloads/Imaginarium/Application/src/main/res/values/dimens.xml -->
     <eat-comment/>
     <dimen name="activity_horizontal_margin">16dp</dimen>
     <dimen name="activity_vertical_margin">16dp</dimen>
-    <!-- From: file:/home/cristina/AndroidStudioProjects/newGithub/Imaginarium/AndroidApp/Imaginarium/Application/src/main/res/values/template-dimens.xml -->
+    <!-- From: file:/home/cristina/Downloads/Imaginarium/Application/src/main/res/values/template-dimens.xml -->
     <eat-comment/>
     <dimen name="horizontal_page_margin">@dimen/margin_medium</dimen>
     <dimen name="margin_huge">64dp</dimen>
@@ -13,17 +13,17 @@
     <dimen name="margin_small">8dp</dimen>
     <dimen name="margin_tiny">4dp</dimen>
     <dimen name="vertical_page_margin">@dimen/margin_medium</dimen>
-    <!-- From: file:/home/cristina/AndroidStudioProjects/newGithub/Imaginarium/AndroidApp/Imaginarium/Application/src/main/res/values/strings.xml -->
+    <!-- From: file:/home/cristina/Downloads/Imaginarium/Application/src/main/res/values/strings.xml -->
     <eat-comment/>
     <string name="action_settings">Settings</string>
-    <!-- From: file:/home/cristina/AndroidStudioProjects/newGithub/Imaginarium/AndroidApp/Imaginarium/Application/src/main/res/values/base-strings.xml -->
+    <!-- From: file:/home/cristina/Downloads/Imaginarium/Application/src/main/res/values/base-strings.xml -->
     <eat-comment/>
     <string name="app_name">Imaginarium</string>
-    <!-- From: file:/home/cristina/AndroidStudioProjects/newGithub/Imaginarium/AndroidApp/Imaginarium/Application/src/main/res/values/strings.xml -->
+    <!-- From: file:/home/cristina/Downloads/Imaginarium/Application/src/main/res/values/strings.xml -->
     <eat-comment/>
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="hello_world">Hello world!</string>
-    <!-- From: file:/home/cristina/AndroidStudioProjects/newGithub/Imaginarium/AndroidApp/Imaginarium/Application/src/main/res/values/base-strings.xml -->
+    <!-- From: file:/home/cristina/Downloads/Imaginarium/Application/src/main/res/values/base-strings.xml -->
     <eat-comment/>
     <string name="intro_message">
         <![CDATA[
@@ -35,11 +35,11 @@
         
         ]]>
     </string>
-    <!-- From: file:/home/cristina/AndroidStudioProjects/newGithub/Imaginarium/AndroidApp/Imaginarium/Application/src/main/res/values/fragmentview_strings.xml -->
+    <!-- From: file:/home/cristina/Downloads/Imaginarium/Application/src/main/res/values/fragmentview_strings.xml -->
     <eat-comment/>
     <string name="sample_hide_log">Hide Log</string>
     <string name="sample_show_log">Show Log</string>
-    <!-- From: file:/home/cristina/AndroidStudioProjects/newGithub/Imaginarium/AndroidApp/Imaginarium/Application/src/main/res/values/strings.xml -->
+    <!-- From: file:/home/cristina/Downloads/Imaginarium/Application/src/main/res/values/strings.xml -->
     <eat-comment/>
     <string name="tab_my_stories">My Stories</string>
     <string name="tab_new_story">New Story</string>
@@ -48,7 +48,7 @@
     <string name="tab_view">View Story</string>
     <string name="title_activity_chat">ChatActivity</string>
     <string name="title_activity_display_story">DisplayStory</string>
-    <!-- From: file:/home/cristina/AndroidStudioProjects/newGithub/Imaginarium/AndroidApp/Imaginarium/Application/src/main/res/values/template-styles.xml -->
+    <!-- From: file:/home/cristina/Downloads/Imaginarium/Application/src/main/res/values/template-styles.xml -->
     <eat-comment/>
     <style name="AppTheme" parent="Theme.Sample"/>
     <style name="Theme.Base" parent="android:Theme.Light"/>

@@ -4,4 +4,4 @@
     <item android:id="@+id/action_settings" android:title="@string/action_settings"
         android:orderInCategory="100" android:showAsAction="never" />
 </menu>
-<!-- From: file:/home/cristina/AndroidStudioProjects/newGithub/Imaginarium/AndroidApp/Imaginarium/Application/src/main/res/menu/menu_display_story.xml -->
+<!-- From: file:/home/cristina/Downloads/Imaginarium/Application/src/main/res/menu/menu_display_story.xml -->

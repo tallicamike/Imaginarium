@@ -1,0 +1,4 @@
+/home/cristina/AndroidStudioProjects/newGithub/Imaginarium/AndroidApp/Imaginarium/Application/build/intermediates/classes/debug
+/home/cristina/AndroidStudioProjects/newGithub/Imaginarium/AndroidApp/Imaginarium/Application/build/intermediates/pre-dexed/debug/support-annotations-22.0.0-b983768312eb8b3927a4100b0d241b9b56d85b8c.jar
+/home/cristina/AndroidStudioProjects/newGithub/Imaginarium/AndroidApp/Imaginarium/Application/build/intermediates/pre-dexed/debug/internal_impl-22.0.0-3165a48ec69e21a6f5bb1c1a3428429eb7604cf6.jar
+/home/cristina/AndroidStudioProjects/newGithub/Imaginarium/AndroidApp/Imaginarium/Application/build/intermediates/pre-dexed/debug/classes-c7ddb8de249b32dd74e5565a8e8dcc197e9e65a6.jar

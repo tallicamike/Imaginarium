@@ -2,25 +2,25 @@
 <items version="2" >
 
     <item
-        jar="/home/cristina/Downloads/SlidingTabsColors/Application/build/intermediates/exploded-aar/com.android.support/support-v4/22.0.0/libs/internal_impl-22.0.0.jar"
+        jar="/home/cristina/AndroidStudioProjects/newGithub/Imaginarium/AndroidApp/Imaginarium/Application/build/intermediates/exploded-aar/com.android.support/support-v4/22.0.0/libs/internal_impl-22.0.0.jar"
         jumboMode="false"
         revision="22.0.1"
         sha1="b5b92f469d515a13d778900f6d50c03d12f35504">
-        <dex dex="/home/cristina/Downloads/SlidingTabsColors/Application/build/intermediates/pre-dexed/debug/internal_impl-22.0.0-350b77816c3e06e64bee9d39001ffe42b0cc6291.jar" />
+        <dex dex="/home/cristina/AndroidStudioProjects/newGithub/Imaginarium/AndroidApp/Imaginarium/Application/build/intermediates/pre-dexed/debug/internal_impl-22.0.0-3165a48ec69e21a6f5bb1c1a3428429eb7604cf6.jar" />
     </item>
     <item
         jar="/home/cristina/Android/Sdk/extras/android/m2repository/com/android/support/support-annotations/22.0.0/support-annotations-22.0.0.jar"
         jumboMode="false"
         revision="22.0.1"
         sha1="685d0b2c590447e85284ed84712cb363ba04eff8">
-        <dex dex="/home/cristina/Downloads/SlidingTabsColors/Application/build/intermediates/pre-dexed/debug/support-annotations-22.0.0-b983768312eb8b3927a4100b0d241b9b56d85b8c.jar" />
+        <dex dex="/home/cristina/AndroidStudioProjects/newGithub/Imaginarium/AndroidApp/Imaginarium/Application/build/intermediates/pre-dexed/debug/support-annotations-22.0.0-b983768312eb8b3927a4100b0d241b9b56d85b8c.jar" />
     </item>
     <item
-        jar="/home/cristina/Downloads/SlidingTabsColors/Application/build/intermediates/exploded-aar/com.android.support/support-v4/22.0.0/classes.jar"
+        jar="/home/cristina/AndroidStudioProjects/newGithub/Imaginarium/AndroidApp/Imaginarium/Application/build/intermediates/exploded-aar/com.android.support/support-v4/22.0.0/classes.jar"
         jumboMode="false"
         revision="22.0.1"
         sha1="4e86306289ace4aa0cfec44a05ed2b410d36989d">
-        <dex dex="/home/cristina/Downloads/SlidingTabsColors/Application/build/intermediates/pre-dexed/debug/classes-d8c5dbc1edcceac5b7bd352d41000171ed5484cc.jar" />
+        <dex dex="/home/cristina/AndroidStudioProjects/newGithub/Imaginarium/AndroidApp/Imaginarium/Application/build/intermediates/pre-dexed/debug/classes-c7ddb8de249b32dd74e5565a8e8dcc197e9e65a6.jar" />
     </item>
 
 </items>

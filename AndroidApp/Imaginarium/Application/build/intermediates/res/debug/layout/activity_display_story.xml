@@ -22,4 +22,4 @@
         android:layout_above="@+id/join"
         android:layout_centerHorizontal="true" />
 </RelativeLayout>
-<!-- From: file:/home/cristina/Downloads/Imaginarium/Application/src/main/res/layout/activity_display_story.xml -->
+<!-- From: file:/home/cristina/AndroidStudioProjects/newGithub/Imaginarium/AndroidApp/Imaginarium/Application/src/main/res/layout/activity_display_story.xml -->

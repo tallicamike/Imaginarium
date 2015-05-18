@@ -29,4 +29,4 @@
         android:layout_height="wrap_content"
         android:id="@+id/videoView" />
 
-</LinearLayout><!-- From: file:/home/cristina/Downloads/Imaginarium/Application/src/main/res/layout/story_fragment.xml -->
+</LinearLayout><!-- From: file:/home/cristina/AndroidStudioProjects/newGithub/Imaginarium/AndroidApp/Imaginarium/Application/src/main/res/layout/story_fragment.xml -->

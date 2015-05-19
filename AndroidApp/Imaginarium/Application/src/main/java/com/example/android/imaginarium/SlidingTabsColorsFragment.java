@@ -17,6 +17,7 @@
 package com.example.android.imaginarium;
 
 import com.example.android.common.view.SlidingTabLayout;
+import com.google.android.gms.common.SignInButton;
 
 import android.graphics.Color;
 import android.os.Bundle;
@@ -27,6 +28,7 @@ import android.support.v4.view.ViewPager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -42,6 +44,14 @@ public class SlidingTabsColorsFragment extends Fragment {
      * This class represents a tab to be displayed by {@link ViewPager} and it's associated
      * {@link SlidingTabLayout}.
      */
+
+    LogoutFragment logoutFragment;
+
+    public SlidingTabsColorsFragment() {
+        super();
+        logoutFragment = new LogoutFragment();
+    }
+
     static class SamplePagerItem {
         private final CharSequence mTitle;
         private final int mIndicatorColor;
@@ -83,7 +93,7 @@ public class SlidingTabsColorsFragment extends Fragment {
         }
     }
 
-    static final String LOG_TAG = "SlidingTabsColorsFragment";
+    static final String LOG_TAG = "Imaginarium";
 
     /**
      * A custom {@link ViewPager} title strip which looks much like Tabs present in Android v4.0 and
@@ -110,6 +120,8 @@ public class SlidingTabsColorsFragment extends Fragment {
          * Populate our tab list with tabs. Each item contains a title, indicator color and divider
          * color, which are used by {@link SlidingTabLayout}.
          */
+
+
         mTabs.add(new SamplePagerItem(
                 getString(R.string.tab_newsfeed), // Title
                 Color.BLUE, // Indicator color
@@ -122,12 +134,6 @@ public class SlidingTabsColorsFragment extends Fragment {
                 Color.GRAY // Divider color
         ));
 
-//        mTabs.add(new SamplePagerItem(
-//                getString(R.string.tab_my_stories), // Title
-//                Color.CYAN, // Indicator color
-//                Color.GRAY // Divider color
-//        ));
-
         mTabs.add(new SamplePagerItem(
                 getString(R.string.tab_my_stories), // Title
                 Color.YELLOW, // Indicator color
@@ -137,6 +143,13 @@ public class SlidingTabsColorsFragment extends Fragment {
         mTabs.add(new SamplePagerItem(
                 getString(R.string.tab_notifications), // Title
                 Color.GREEN, // Indicator color
+                Color.GRAY // Divider color
+        ));
+
+
+        mTabs.add(new SamplePagerItem(
+                getString(R.string.tab_login), // Title
+                Color.CYAN, // Indicator color
                 Color.GRAY // Divider color
         ));
         // END_INCLUDE (populate_tabs)
@@ -237,6 +250,9 @@ public class SlidingTabsColorsFragment extends Fragment {
                     return f;
                 case 3:
                     return new Notifications();
+
+                case 4:
+                    return logoutFragment;
                 default:
                     //getActivity().getActionBar().setTitle("Imaginarium");
                     return mTabs.get(i).createFragment();
@@ -263,5 +279,4 @@ public class SlidingTabsColorsFragment extends Fragment {
         // END_INCLUDE (pageradapter_getpagetitle)
 
     }
-
 }

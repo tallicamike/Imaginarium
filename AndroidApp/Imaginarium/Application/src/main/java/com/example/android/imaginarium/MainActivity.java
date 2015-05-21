@@ -22,19 +22,17 @@ import android.app.PendingIntent;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.IntentSender;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v4.app.FragmentTransaction;
 import android.util.Log;
 import android.view.Menu;
+import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ArrayAdapter;
 import android.widget.Button;
-import android.widget.CheckBox;
-import android.widget.ListView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.example.android.common.activities.SampleActivityBase;
 import com.google.android.gms.common.ConnectionResult;
@@ -48,7 +46,8 @@ import com.google.android.gms.plus.Plus;
 import com.google.android.gms.plus.model.people.Person;
 import com.google.android.gms.plus.model.people.PersonBuffer;
 
-import java.util.ArrayList;
+import org.springframework.http.converter.json.MappingJackson2HttpMessageConverter;
+import org.springframework.web.client.RestTemplate;
 
 /**
  * A simple launcher activity containing a summary sample description, sample log and a custom
@@ -130,30 +129,60 @@ public class MainActivity extends SampleActivityBase
     private boolean mServerHasToken = true;
 
     private SignInButton mSignInButton;
-    private Button mSignOutButton;
 
-    private TextView welcome;
-    private TextView instructions;
-
+    private boolean loginDisplayed;
+    private boolean notifyServer;
 //    private TextView mStatus;
 //    private ListView mCirclesListView;
 //    private ArrayAdapter<String> mCirclesAdapter;
 //    private ArrayList<String> mCirclesList;
 
+
+    private Person currentUser;
+    private String gid;
+    private String username;
+    private String friendList;
+
     SlidingTabsColorsFragment slidingTabsColorsFragment;
     LoginFragment loginFragment;
 
+    View separation_bar;
+
+    ViewGroup parentView;
+
     private void signInUpdateLayout() {
-        ViewGroup parentView = (ViewGroup) mSignInButton.getParent();
+
+        if (! loginDisplayed)
+            return;
+
+//        ViewGroup parentView = (ViewGroup) mSignInButton.getParent();
         parentView.removeView(mSignInButton);
 
-        parentView = (ViewGroup) welcome.getParent();
-        parentView.removeView(welcome);
+//        mSignInButton.setVisibility(View.INVISIBLE);
 
-        parentView = (ViewGroup) instructions.getParent();
-        parentView.removeView(instructions);
+//        parentView = (ViewGroup) welcome.getParent();
+//        parentView.removeView(welcome);
+//
+//        parentView = (ViewGroup) instructions.getParent();
+//        parentView.removeView(instructions);
+//        separation_bar.setVisibility(View.VISIBLE);
+
+        parentView.addView(separation_bar);
+        loginDisplayed = false;
     }
 
+
+    private void signOutUpdateLayout() {
+
+        if (loginDisplayed)
+            return;
+
+        parentView.addView(mSignInButton);
+        parentView.removeView(separation_bar);
+//        separation_bar.setVisibility(View.INVISIBLE);
+
+        loginDisplayed = true;
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -163,25 +192,33 @@ public class MainActivity extends SampleActivityBase
         loginFragment =  new LoginFragment();
 
         mSignInButton = (SignInButton) findViewById(R.id.sign_in_button);
-        mSignOutButton = (Button) findViewById(R.id.sign_out_button);
+
+        separation_bar = findViewById(R.id.separation_bar);
 
         mSignInButton.setOnClickListener(this);
-        mSignOutButton.setOnClickListener(this);
-
-        welcome = (TextView) findViewById(R.id.welcome_text);
-        instructions = (TextView) findViewById(R.id.instructions_text);
+        parentView = (ViewGroup) mSignInButton.getParent();
+        parentView.removeView(separation_bar);
 
         mGoogleApiClient = buildGoogleApiClient();
 
         FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
+        loginDisplayed = true;
+        notifyServer = false;
 
         if (savedInstanceState == null) {
 
             if (mGoogleApiClient != null && mGoogleApiClient.isConnected()) {
-                transaction.replace(R.id.sample_content_fragment, slidingTabsColorsFragment);
                 signInUpdateLayout();
+
+                Bundle args = new Bundle();
+                args.putString("gid", gid);
+                args.putString("friends", friendList);
+                slidingTabsColorsFragment.setArguments(args);
+                transaction.replace(R.id.sample_content_fragment, slidingTabsColorsFragment);
+
             }
             else {
+                signOutUpdateLayout();
                 transaction.replace(R.id.sample_content_fragment, loginFragment);
             }
             transaction.commit();
@@ -206,6 +243,7 @@ public class MainActivity extends SampleActivityBase
     protected void onStart() {
         super.onStart();
         mGoogleApiClient.connect();
+
     }
 
     @Override
@@ -234,16 +272,6 @@ public class MainActivity extends SampleActivityBase
                     mSignInProgress = STATE_SIGN_IN;
                     mGoogleApiClient.connect();
                     break;
-                case R.id.sign_out_button:
-                    // We clear the default account on sign out so that Google Play
-                    // services will not return an onConnected callback without user
-                    // interaction.
-                    if (mGoogleApiClient.isConnected()) {
-                        Plus.AccountApi.clearDefaultAccount(mGoogleApiClient);
-                        mGoogleApiClient.disconnect();
-                    }
-                    onSignedOut();
-                    break;
             }
         }
     }
@@ -261,10 +289,23 @@ public class MainActivity extends SampleActivityBase
 
         // Update the user interface to reflect that the user is signed in.
         mSignInButton.setEnabled(false);
-        mSignOutButton.setEnabled(true);
 
+        signInUpdateLayout();
+        if (! notifyServer) {
+           new HttpRequestTask().execute();
+           notifyServer = true;
+        }
         // Retrieve some profile information to personalize our app for the user.
-        Person currentUser = Plus.PeopleApi.getCurrentPerson(mGoogleApiClient);
+        currentUser = Plus.PeopleApi.getCurrentPerson(mGoogleApiClient);
+        gid = currentUser.getId();
+        username = currentUser.getDisplayName();
+
+
+        Log.d("[onConnected]", username);
+
+        slidingTabsColorsFragment.setGid(gid);
+        slidingTabsColorsFragment.setUsername(username);
+        slidingTabsColorsFragment.setFriends(friendList);
 
 //        mStatus.setText(String.format(
 //                getResources().getString(R.string.signed_in_as),
@@ -280,10 +321,12 @@ public class MainActivity extends SampleActivityBase
 
         FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
 
+        Bundle args = new Bundle();
+        args.putString("gid", gid);
+        args.putString("friends", friendList);
+
         transaction.replace(R.id.sample_content_fragment, slidingTabsColorsFragment);
         transaction.commit();
-
-        signInUpdateLayout();
 
     }
 
@@ -387,19 +430,21 @@ public class MainActivity extends SampleActivityBase
 
     @Override
     public void onResult(People.LoadPeopleResult peopleData) {
+
         if (peopleData.getStatus().getStatusCode() == CommonStatusCodes.SUCCESS) {
-//            mCirclesList.clear();
-//            PersonBuffer personBuffer = peopleData.getPersonBuffer();
-//            try {
-//                int count = personBuffer.getCount();
-//                for (int i = 0; i < count; i++) {
-//                    mCirclesList.add(personBuffer.get(i).ge);
-//                }
-//            } finally {
-//                personBuffer.close();
-//            }
-//
-//            mCirclesAdapter.notifyDataSetChanged();
+
+            PersonBuffer personBuffer = peopleData.getPersonBuffer();
+            friendList = "";
+            try {
+                int count = personBuffer.getCount();
+                for (int i = 0; i < count; i++) {
+                    friendList += personBuffer.get(i).getId() + ",";
+                }
+                friendList += personBuffer.get(count - 1).getId();
+            } finally {
+                personBuffer.close();
+            }
+
         } else {
             Log.e(TAG, "Error requesting visible circles: " + peopleData.getStatus());
         }
@@ -408,12 +453,12 @@ public class MainActivity extends SampleActivityBase
     private void onSignedOut() {
         // Update the UI to reflect that the user is signed out.
         mSignInButton.setEnabled(true);
-        mSignOutButton.setEnabled(false);
 
         FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
         transaction.replace(R.id.sample_content_fragment, loginFragment);
         transaction.commit();
 
+        signOutUpdateLayout();
 //        mStatus.setText(R.string.status_signed_out);
 //
 //        mCirclesList.clear();
@@ -460,7 +505,14 @@ public class MainActivity extends SampleActivityBase
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        return true;
+
+        MenuInflater mif = getMenuInflater();
+
+        mif.inflate(R.menu.main, menu);
+
+        return super.onCreateOptionsMenu(menu);
+
+
     }
 
     @Override
@@ -470,7 +522,55 @@ public class MainActivity extends SampleActivityBase
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
+
+        switch (item.getItemId()) {
+            case R.id.logout_button:
+                // We clear the default account on sign out so that Google Play
+                // services will not return an onConnected callback without user
+                // interaction.
+                if (mGoogleApiClient.isConnected()) {
+                    Plus.AccountApi.clearDefaultAccount(mGoogleApiClient);
+                    mGoogleApiClient.disconnect();
+                }
+                onSignedOut();
+                break;
+            default:
+                break;
+        }
         return super.onOptionsItemSelected(item);
     }
 
+    private class HttpRequestTask extends AsyncTask<Void, Void, Void> {
+        @Override
+        protected Void doInBackground(Void... params) {
+            try {
+//                final String url = "http://tallica.koding.io:8080/create_user?gid=" + gid;
+                Log.d("[Main]", "Send URL");
+                final String url = "http://tallica.koding.io:8080/create_user?gname=" +
+                        username +
+                        "&gid=" + gid;
+
+                RestTemplate restTemplate = new RestTemplate();
+                restTemplate.getMessageConverters().add(new MappingJackson2HttpMessageConverter());
+                restTemplate.getForObject(url, Integer.class);
+
+
+            } catch (Exception e) {
+                Log.e("MainActivity", e.getMessage(), e);
+            }
+
+            return null;
+        }
+
+        @Override
+        protected void onPostExecute(Void v) {
+//            TextView greetingIdText = (TextView) findViewById(R.id.id_value);
+//            TextView greetingContentText = (TextView) findViewById(R.id.content_value);
+//            greetingIdText.setText(greeting.getId());
+//            greetingContentText.setText(greeting.getContent());
+//              Log.d("[Recieved]", userinfo.getId() + " " + userinfo.getName());
+        }
+
+    }
 }
+

@@ -25,6 +25,7 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -47,9 +48,25 @@ public class SlidingTabsColorsFragment extends Fragment {
 
     LogoutFragment logoutFragment;
 
+    String gid;
+    String username;
+    String friendsList;
+
     public SlidingTabsColorsFragment() {
         super();
         logoutFragment = new LogoutFragment();
+    }
+
+    public void setGid(String set_gid) {
+        this.gid = set_gid;
+    }
+
+    public void setUsername(String set_username) {
+        this.username = set_username;
+    }
+
+    public void setFriends(String friends) {
+        this.friendsList = friends;
     }
 
     static class SamplePagerItem {
@@ -121,6 +138,7 @@ public class SlidingTabsColorsFragment extends Fragment {
          * color, which are used by {@link SlidingTabLayout}.
          */
 
+//        gid = savedInstanceState.getString("gid");
 
         mTabs.add(new SamplePagerItem(
                 getString(R.string.tab_newsfeed), // Title
@@ -178,6 +196,9 @@ public class SlidingTabsColorsFragment extends Fragment {
      */
     @Override
     public void onViewCreated(View view, Bundle savedInstanceState) {
+
+       // gid = savedInstanceState.getString("gid");
+
         // BEGIN_INCLUDE (setup_viewpager)
         // Get the ViewPager and set it's PagerAdapter so that it can display items
         mViewPager = (ViewPager) view.findViewById(R.id.viewpager);
@@ -233,19 +254,29 @@ public class SlidingTabsColorsFragment extends Fragment {
         @Override
         public Fragment getItem(int i) {
             Fragment f;
-            switch (i) {
+            switch (i % 4) {
                 case 0:
                     f = new NewsFeed();
                     Bundle bundle1 = new Bundle();
                     bundle1.putInt("is_newsfeed", 1);
+                    bundle1.putString("gid", gid);
+                    bundle1.putString("username", username);
+                    bundle1.putString("friends", friendsList);
                     f.setArguments(bundle1);
                     return f;
                 case 1:
-                    return new NewStory();
+                    NewStory newStory = new NewStory();
+                   // Log.d("[Sliding switch]", gid + " " + username);
+                    newStory.setGID(gid);
+                    newStory.setUsername(username);
+                    return newStory;
                 case 2:
                     f = new NewsFeed();
                     Bundle bundle2 = new Bundle();
                     bundle2.putInt("is_newsfeed", 0);
+                    bundle2.putString("gid", gid);
+                    bundle2.putString("username", username);
+                    bundle2.putString("friends", "");
                     f.setArguments(bundle2);
                     return f;
                 case 3:

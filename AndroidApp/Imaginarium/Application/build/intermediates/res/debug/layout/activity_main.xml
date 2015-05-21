@@ -20,46 +20,20 @@
       android:layout_height="match_parent"
       android:id="@+id/sample_main_layout">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="Welcome !"
-        android:id="@+id/welcome_text"
-        android:layout_gravity="center_horizontal"
-        android:textColor="#0000FF"
-        android:paddingTop="20dp"
-        android:paddingBottom="20dp"/>
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceMedium"
-        android:text="Please sign in with your G+ account"
-        android:id="@+id/instructions_text"
-        android:layout_gravity="center_horizontal"
-        android:textColor="#0000FF"
-        android:paddingTop="20dp"
-        android:paddingBottom="20dp"/>
-
     <com.google.android.gms.common.SignInButton
         android:id="@+id/sign_in_button"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="30dip"
-        android:enabled="false" />
-
-    <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Logout"
-        android:id="@+id/sign_out_button"
-        android:layout_gravity="center_horizontal|top" />
+        android:layout_marginBottom="30dip"
+        android:paddingTop="20dp"
+        android:enabled="false"
+        android:layout_gravity="center_horizontal" />
 
     <View
-          android:layout_width="match_parent"
-          android:layout_height="1dp"
-          android:background="@android:color/darker_gray" />
+        android:id="@+id/separation_bar"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@android:color/darker_gray" />
 
     <FrameLayout
           android:id="@+id/sample_content_fragment"

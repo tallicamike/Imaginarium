@@ -321,6 +321,7 @@ available. Please contact the developer for assistance.</string>
     <string name="sample_show_log">Show Log</string>
     <!-- From: file:/home/cristina/AndroidStudioProjects/newGithub/Imaginarium/AndroidApp/Imaginarium/Application/src/main/res/values/strings.xml -->
     <eat-comment/>
+    <string name="show_sign_out">Sing Out</string>
     <string name="sign_out_button_name">Sign out</string>
     <string name="signed_in_as">Signed in as %s</string>
     <string name="status_loading">Loading…</string>

@@ -3,6 +3,7 @@ package com.example.android.imaginarium;
 
 import android.content.Context;
 import android.content.Intent;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.util.Log;
@@ -11,8 +12,12 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.TextView;
+
+import org.springframework.http.converter.json.MappingJackson2HttpMessageConverter;
+import org.springframework.web.client.RestTemplate;
 
 import java.util.ArrayList;
 
@@ -24,10 +29,23 @@ public class NewsFeed extends Fragment {
 
     int is_newsfeed;
 
+    String gid, username, friendList;
+
+    ArrayList<Story_Info> arrayOfStories;
+    Story_newsfeed_prev_adapter adapter;
+    ListView listView;;
+
+    NewsFeedData data;
+
     public NewsFeed() {
 
     }
 
+    @Override
+    public void onStart() {
+        new HttpRequestTask().execute();
+        super.onStart();
+    }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -37,45 +55,39 @@ public class NewsFeed extends Fragment {
 
         Bundle bundle = this.getArguments();
         is_newsfeed = bundle.getInt("is_newsfeed");
+        gid = bundle.getString("gid");
+        username = bundle.getString("username");
+        friendList = bundle.getString("friends");
+//        Log.d("[Friends] ", friendList);
 
         // Construct the data source
-        ArrayList<Story_Info> arrayOfStories = new ArrayList<Story_Info>();
+        arrayOfStories = new ArrayList<Story_Info>();
         // Create the adapter to convert the array to views
-        Story_newsfeed_prev_adapter adapter = new Story_newsfeed_prev_adapter(getActivity().getApplicationContext(),
+        adapter = new Story_newsfeed_prev_adapter(getActivity().getApplicationContext(),
                 arrayOfStories);
         // Attach the adapter to a ListView
-        final ListView listView = (ListView) V.findViewById(R.id.newsfeed);
+        listView = (ListView) V.findViewById(R.id.newsfeed);
         listView.setAdapter(adapter);
 
-        String s1 = "Title_", s2 = "Description_", s3 = "12/04/2015", s4 = "4 hours ago";
-        ArrayList<String> p = new ArrayList<>();
 
-        p.add(0, "Part1");
-        p.add(0, "Part2");
-        p.add(0, "Part3");
-        p.add(0, "Part4");
-
-        Story_Info prev;
-
-        for (int i = 0; i < 5; i++) {
-            prev = new Story_Info(i, s1 + i, s2 + i, p, s3, s4);
-            adapter.add(prev);
-        }
-//
-//        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-//            public void onItemClick(AdapterView<?> parent, View v, int position, long id) {
-//
-//                Log.d("Click", "MY CLICK");
-//                Toast.makeText(getActivity().getApplicationContext(), "Show Full Image", Toast.LENGTH_LONG).show();
-//            }
-//        });
-//
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                Log.d("Click", "Clicked");
-                TextView tv = (TextView) view.findViewById(R.id.id_title);
+                //Log.d("Click", "Clicked");
+                //TextView tv = (TextView) view.findViewById(R.id.id_title);
+                LinearLayout ll = (LinearLayout) listView.getChildAt(position);
+                TextView tv = (TextView) ll.findViewById(R.id.id_title);
+
                 String story_title = tv.getText().toString();
+
+                Log.d("[storyyyyy]", story_title);
+                String story_id = "";
+
+                for (ClientStory cs : data.getStories()) {
+                    if (cs.getTitle().matches(story_title))
+                        story_id = "" + cs.getStoryId();
+                }
+
                 //Log.d("Click", "text is " + text);
                 //Toast.makeText(getActivity().getApplicationContext(), text, Toast.LENGTH_SHORT);
                 Bundle bundle = new Bundle();
@@ -85,8 +97,21 @@ public class NewsFeed extends Fragment {
                 else
                     myIntent = new Intent(new Intent(getActivity(), DisplayStory.class));
 
+                bundle.putString("gid", gid);
+                bundle.putString("username", username);
+
+                //Log.d("[NewsFeed -log]", gid + " " + username);
+
                 bundle.putString("story_title", story_title);
-                bundle.putParcelableArrayList("fragments", new ArrayList<Story_Fragment>());
+
+
+
+
+                Log.d("[ID gasit]", story_id + " " + story_title);
+
+                bundle.putString("story_id", story_id);
+
+                //bundle.putParcelableArrayList("fragments", new ArrayList<Story_Fragment>());
                 myIntent.putExtras(bundle);
 
                 startActivity(myIntent);
@@ -94,42 +119,77 @@ public class NewsFeed extends Fragment {
             }
         });
 
-//        Button goToStory = (Button) getActivity().findViewById(R.id.goToStory);
-//        //final TextView title = (TextView) getActivity().findViewById(R.id.id_title);
-//
-//        if (goToStory == null) {
-//            Log.d("[BUTTON]", " NULL");
-//        }
-//        else {
-//            Log.d("[BUTTON]", " NOT NULL");
-//        }
-
- //       goToStory.setOnClickListener(new View.OnClickListener() {
- //           @Override
- //           public void onClick(View v) {
-//                final int position = listView.getPositionForView(v);
-//                if (position != ListView.INVALID_POSITION) {
-//                    Toast.makeText(getActivity().getApplicationContext(), "Not valid action", Toast.LENGTH_SHORT);
-//                }
-//                else {
-//                    Intent myIntent =
-//                            new Intent(new Intent(getActivity(), ChatActivity.class));
-//
-//                    Bundle bundle = new Bundle();
-//
-//                    //String story_title = title.getText().toString();
-//
-//                    bundle.putString("story_title", "Default");
-//                    bundle.putParcelableArrayList("fragments", new ArrayList<Story_Fragment>());
-//                    myIntent.putExtras(bundle);
-//
-//                    startActivity(myIntent);
-//                }
-//            }
-//        });
-
         return V;
 
+    }
+
+    private class HttpRequestTask extends AsyncTask<Void, Void, NewsFeedData> {
+        @Override
+        protected NewsFeedData doInBackground(Void... params) {
+            try {
+               // Log.d("[Main]", "Send URL");
+                final String url = "http://tallica.koding.io:8080/get_friends_stories?gid=" +
+                        gid +
+                        "&friends=";
+
+                //Log.d("[Newsfeed URL] ", url);
+                RestTemplate restTemplate = new RestTemplate();
+                restTemplate.getMessageConverters().add(new MappingJackson2HttpMessageConverter());
+                data  = restTemplate.getForObject(url, NewsFeedData.class);
+
+                getActivity().runOnUiThread(new Runnable() {
+                    @Override
+                    public void run() {
+                        String s1 = "Title_", s2 = "Description_", s3 = "20/05/2015", s4 = "4 hours ago";
+                        ArrayList<String> p = new ArrayList<>();
+
+
+                        Story_Info prev;
+
+                        int i = 0;
+
+                        listView.setAdapter(null);
+                        arrayOfStories.clear();
+
+                        if (data.getStories().size() > 0) {
+                            for (ClientStory cs : data.getStories()) {
+
+                                p.clear();
+                                for (ClientFragment cf : cs.getFragments()) {
+                                    p.add(0, cf.getAuthorName());
+
+                                }
+
+                                prev = new Story_Info(cs.getStoryId(), cs.getTitle(), "",
+                                        p, s3, cs.getLastUpdate());
+
+                                arrayOfStories.add(prev);
+
+                            }
+                        }
+                        else {
+                            prev = new Story_Info(0, "No stories to display", "", null, "", "");
+                            arrayOfStories.add(prev);
+                        }
+                        adapter = new Story_newsfeed_prev_adapter(getActivity(),arrayOfStories);
+                        listView.setAdapter(adapter);
+
+                    }
+                });
+
+                return data;
+
+            } catch (Exception e) {
+                Log.e("MainActivity", e.getMessage(), e);
+            }
+
+            return null;
+        }
+
+        @Override
+        protected void onPostExecute(NewsFeedData v) {
+
+        }
     }
 
 }
@@ -161,9 +221,10 @@ class Story_newsfeed_prev_adapter extends ArrayAdapter<Story_Info> {
 
         String parts = new String("");
 
-        for (String p : story.participants) {
-            parts += p + ",";
-        }
+        if (story.participants.size() > 0)
+            for (String p : story.participants) {
+                parts += p + ",";
+            }
 
         participants.setText(parts);
         started.setText(story.started);
@@ -194,4 +255,4 @@ class Story_newsfeed_prev_adapter extends ArrayAdapter<Story_Info> {
     }
 
 
-}
+    }

@@ -14,26 +14,19 @@ public class Story_Fragment implements Parcelable {
     String owner;
     String text;
 
-    int has_image, has_video;
-    String path_to_img, path_to_video;
+    int has_media;
+    String path_to_media;
 
     Story_Fragment(int id, String owner, String text,
-                   int has_image, int has_video,
-                    String path_to_img, String path_to_video) {
+                   int has_media, String path_to_media) {
         this.id = id;
         this.owner = owner;
         this.text = text;
-        this.has_image = has_image;
-        this.has_video = has_video;
-        if (this.has_image == 1)
-            this.path_to_img = path_to_img;
+        this.has_media = has_media;
+        if (this.has_media == 1)
+            this.path_to_media = path_to_media;
         else
-            this.path_to_img = "";
-
-        if (this.has_video == 1)
-            this.path_to_video = path_to_video;
-        else
-            this.path_to_video = "";
+            this.path_to_media = "";
     }
 
     @Override
@@ -46,18 +39,16 @@ public class Story_Fragment implements Parcelable {
         dest.writeInt(this.id);
         dest.writeString(this.owner);
         dest.writeString(this.text);
-        dest.writeInt(this.has_image);
-        dest.writeInt(this.has_video);
-        dest.writeString(this.path_to_img);
-        dest.writeString(this.path_to_video);
+        dest.writeInt(this.has_media);
+        dest.writeString(this.path_to_media);
     }
 
     public static final Parcelable.Creator CREATOR = new Parcelable.Creator() {
         public Story_Fragment createFromParcel(Parcel in) {
             return new Story_Fragment(in.readInt(),
                     in.readString(), in.readString(),
-                    in.readInt(), in.readInt(),
-                    in.readString(), in.readString());
+                    in.readInt(),
+                    in.readString());
         }
 
         public Story_Fragment[] newArray(int size) {

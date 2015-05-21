@@ -138,8 +138,6 @@ public class SlidingTabsColorsFragment extends Fragment {
          * color, which are used by {@link SlidingTabLayout}.
          */
 
-//        gid = savedInstanceState.getString("gid");
-
         mTabs.add(new SamplePagerItem(
                 getString(R.string.tab_newsfeed), // Title
                 Color.BLUE, // Indicator color
@@ -165,11 +163,6 @@ public class SlidingTabsColorsFragment extends Fragment {
         ));
 
 
-        mTabs.add(new SamplePagerItem(
-                getString(R.string.tab_login), // Title
-                Color.CYAN, // Indicator color
-                Color.GRAY // Divider color
-        ));
         // END_INCLUDE (populate_tabs)
     }
 
@@ -196,8 +189,6 @@ public class SlidingTabsColorsFragment extends Fragment {
      */
     @Override
     public void onViewCreated(View view, Bundle savedInstanceState) {
-
-       // gid = savedInstanceState.getString("gid");
 
         // BEGIN_INCLUDE (setup_viewpager)
         // Get the ViewPager and set it's PagerAdapter so that it can display items
@@ -266,7 +257,6 @@ public class SlidingTabsColorsFragment extends Fragment {
                     return f;
                 case 1:
                     NewStory newStory = new NewStory();
-                   // Log.d("[Sliding switch]", gid + " " + username);
                     newStory.setGID(gid);
                     newStory.setUsername(username);
                     return newStory;
@@ -285,7 +275,6 @@ public class SlidingTabsColorsFragment extends Fragment {
                 case 4:
                     return logoutFragment;
                 default:
-                    //getActivity().getActionBar().setTitle("Imaginarium");
                     return mTabs.get(i).createFragment();
 
             }

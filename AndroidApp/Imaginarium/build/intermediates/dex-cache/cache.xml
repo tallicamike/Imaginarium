@@ -2,20 +2,6 @@
 <items version="2" >
 
     <item
-        jar="/home/cristina/AndroidStudioProjects/newGithub/Imaginarium/AndroidApp/Imaginarium/Application/build/intermediates/exploded-aar/com.google.android.gms/play-services-nearby/7.0.0/classes.jar"
-        jumboMode="false"
-        revision="22.0.1"
-        sha1="ef5f051e7308febe289dc93c67c5f32785b4260a">
-        <dex dex="/home/cristina/AndroidStudioProjects/newGithub/Imaginarium/AndroidApp/Imaginarium/Application/build/intermediates/pre-dexed/debug/classes-549857034526c19e8cfd569b56b39a84ce7521d3.jar" />
-    </item>
-    <item
-        jar="/home/cristina/AndroidStudioProjects/newGithub/Imaginarium/AndroidApp/Imaginarium/Application/build/intermediates/exploded-aar/com.google.android.gms/play-services-panorama/7.0.0/classes.jar"
-        jumboMode="false"
-        revision="22.0.1"
-        sha1="1c5a76debf0c2857ccad422c4a80ed785982f8df">
-        <dex dex="/home/cristina/AndroidStudioProjects/newGithub/Imaginarium/AndroidApp/Imaginarium/Application/build/intermediates/pre-dexed/debug/classes-b727d3294326541115e32e8c5c40ae64c4e38685.jar" />
-    </item>
-    <item
         jar="/home/cristina/AndroidStudioProjects/newGithub/Imaginarium/AndroidApp/Imaginarium/Application/build/intermediates/exploded-aar/com.google.android.gms/play-services-plus/7.0.0/classes.jar"
         jumboMode="false"
         revision="22.0.1"
@@ -28,6 +14,111 @@
         revision="22.0.1"
         sha1="9224bc4c54ba95147c7eabd874573763c07cb6be">
         <dex dex="/home/cristina/AndroidStudioProjects/newGithub/Imaginarium/AndroidApp/Imaginarium/Application/build/intermediates/pre-dexed/debug/classes-55f92d32ad9cbbdd5fbb2141ca85156943f763a8.jar" />
+    </item>
+    <item
+        jar="/home/cristina/AndroidStudioProjects/newGithub/Imaginarium/AndroidApp/Imaginarium/Application/build/intermediates/exploded-aar/com.google.android.gms/play-services-maps/7.0.0/classes.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="17f8750d5c0749e44dd7c54aa390d9c937803825">
+        <dex dex="/home/cristina/AndroidStudioProjects/newGithub/Imaginarium/AndroidApp/Imaginarium/Application/build/intermediates/pre-dexed/debug/classes-a17f1dcd681553433fad5c75719041b4cebf45c0.jar" />
+    </item>
+    <item
+        jar="/home/cristina/AndroidStudioProjects/newGithub/Imaginarium/AndroidApp/Imaginarium/Application/build/intermediates/exploded-aar/com.google.android.gms/play-services-wallet/7.0.0/classes.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="a96b762bde4139de855735f175ec4d17dca55a6d">
+        <dex dex="/home/cristina/AndroidStudioProjects/newGithub/Imaginarium/AndroidApp/Imaginarium/Application/build/intermediates/pre-dexed/debug/classes-4f55a50353587ffd6b99bc233f66510bcb7889fd.jar" />
+    </item>
+    <item
+        jar="/home/cristina/AndroidStudioProjects/newGithub/Imaginarium/AndroidApp/Imaginarium/Application/build/intermediates/exploded-aar/com.google.android.gms/play-services-safetynet/7.0.0/classes.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="c976518693e89ad44fbfccfc654941eaec198d08">
+        <dex dex="/home/cristina/AndroidStudioProjects/newGithub/Imaginarium/AndroidApp/Imaginarium/Application/build/intermediates/pre-dexed/debug/classes-91c9571d05d792996acbe3f9be1c9a788d4d2d95.jar" />
+    </item>
+    <item
+        jar="/home/cristina/.gradle/caches/modules-2/files-2.1/com.fasterxml.jackson.core/jackson-databind/2.3.2/c75edc740a6d8cb1cef6fa82fa594e0bce561916/jackson-databind-2.3.2.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="c75edc740a6d8cb1cef6fa82fa594e0bce561916">
+        <dex dex="/home/cristina/AndroidStudioProjects/newGithub/Imaginarium/AndroidApp/Imaginarium/Application/build/intermediates/pre-dexed/debug/jackson-databind-2.3.2-41afb070db2cda673212c6099d0ec8d4c727d59d.jar" />
+    </item>
+    <item
+        jar="/home/cristina/.gradle/caches/modules-2/files-2.1/org.apache.httpcomponents/httpclient-android/4.3.5.1/eecbb0b998e77629862a13d957d552b3be58fc4e/httpclient-android-4.3.5.1.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="eecbb0b998e77629862a13d957d552b3be58fc4e">
+        <dex dex="/home/cristina/AndroidStudioProjects/newGithub/Imaginarium/AndroidApp/Imaginarium/Application/build/intermediates/pre-dexed/debug/httpclient-android-4.3.5.1-074103ceb87f063f06ff4860aa27516c9b5b8052.jar" />
+    </item>
+    <item
+        jar="/home/cristina/AndroidStudioProjects/newGithub/Imaginarium/AndroidApp/Imaginarium/Application/build/intermediates/exploded-aar/com.google.android.gms/play-services-drive/7.0.0/classes.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="41b3870cbe5fa546d8095b5b89d42cb69f3dd175">
+        <dex dex="/home/cristina/AndroidStudioProjects/newGithub/Imaginarium/AndroidApp/Imaginarium/Application/build/intermediates/pre-dexed/debug/classes-9ec0c20368017097b076a712d87c2df807d82f70.jar" />
+    </item>
+    <item
+        jar="/home/cristina/.gradle/caches/modules-2/files-2.1/com.fasterxml.jackson.core/jackson-annotations/2.3.0/f5e853a20b60758922453d56f9ae1e64af5cb3da/jackson-annotations-2.3.0.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="f5e853a20b60758922453d56f9ae1e64af5cb3da">
+        <dex dex="/home/cristina/AndroidStudioProjects/newGithub/Imaginarium/AndroidApp/Imaginarium/Application/build/intermediates/pre-dexed/debug/jackson-annotations-2.3.0-b596f8dd834d342066a1d3fd32da0cdfb4fa96c4.jar" />
+    </item>
+    <item
+        jar="/home/cristina/.gradle/caches/modules-2/files-2.1/org.apache.httpcomponents/httpmime/4.3.6/cf8bacbf0d476c7f2221f861269365b66447f7ec/httpmime-4.3.6.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="cf8bacbf0d476c7f2221f861269365b66447f7ec">
+        <dex dex="/home/cristina/AndroidStudioProjects/newGithub/Imaginarium/AndroidApp/Imaginarium/Application/build/intermediates/pre-dexed/debug/httpmime-4.3.6-36a0f8cbf6e72f74ddf3bbade88b6728576520be.jar" />
+    </item>
+    <item
+        jar="/home/cristina/AndroidStudioProjects/newGithub/Imaginarium/AndroidApp/Imaginarium/Application/build/intermediates/exploded-aar/com.google.android.gms/play-services-base/7.0.0/classes.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="4c93d99d454c975536bbe3b42283eee847f03ea3">
+        <dex dex="/home/cristina/AndroidStudioProjects/newGithub/Imaginarium/AndroidApp/Imaginarium/Application/build/intermediates/pre-dexed/debug/classes-07e08350ce913a325a076b6b7109928b7383600a.jar" />
+    </item>
+    <item
+        jar="/home/cristina/AndroidStudioProjects/newGithub/Imaginarium/AndroidApp/Imaginarium/Application/build/intermediates/exploded-aar/com.google.android.gms/play-services-identity/7.0.0/classes.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="fb04b12526b0073c7fb1ebb70c5842d82ee95596">
+        <dex dex="/home/cristina/AndroidStudioProjects/newGithub/Imaginarium/AndroidApp/Imaginarium/Application/build/intermediates/pre-dexed/debug/classes-54e3d7d6f165ba1c7b4497502709f0d33911beb6.jar" />
+    </item>
+    <item
+        jar="/home/cristina/.gradle/caches/modules-2/files-2.1/org.springframework.android/spring-android-core/1.0.1.RELEASE/e68f0e8e4b636ee30c4de58953be38d9b72a5e3b/spring-android-core-1.0.1.RELEASE.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="e68f0e8e4b636ee30c4de58953be38d9b72a5e3b">
+        <dex dex="/home/cristina/AndroidStudioProjects/newGithub/Imaginarium/AndroidApp/Imaginarium/Application/build/intermediates/pre-dexed/debug/spring-android-core-1.0.1.RELEASE-c6b2d84e85fcd0c7a72e868b1c6cc6a998d722d2.jar" />
+    </item>
+    <item
+        jar="/home/cristina/.gradle/caches/modules-2/files-2.1/com.fasterxml.jackson.core/jackson-core/2.3.2/559b70ac8a0d5cad611da4223137a920147201ba/jackson-core-2.3.2.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="559b70ac8a0d5cad611da4223137a920147201ba">
+        <dex dex="/home/cristina/AndroidStudioProjects/newGithub/Imaginarium/AndroidApp/Imaginarium/Application/build/intermediates/pre-dexed/debug/jackson-core-2.3.2-6c42a200a9f94da5f7821c57b2003e53c538d8b4.jar" />
+    </item>
+    <item
+        jar="/home/cristina/AndroidStudioProjects/newGithub/Imaginarium/AndroidApp/Imaginarium/Application/build/intermediates/exploded-aar/com.google.android.gms/play-services-cast/7.0.0/classes.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="4cd0b093824b3228fffc21ea369b98d0b1db6566">
+        <dex dex="/home/cristina/AndroidStudioProjects/newGithub/Imaginarium/AndroidApp/Imaginarium/Application/build/intermediates/pre-dexed/debug/classes-5880ed6e11a1f0874a802cb3c912fc38025b11c9.jar" />
+    </item>
+    <item
+        jar="/home/cristina/AndroidStudioProjects/newGithub/Imaginarium/AndroidApp/Imaginarium/Application/build/intermediates/exploded-aar/com.google.android.gms/play-services-nearby/7.0.0/classes.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="ef5f051e7308febe289dc93c67c5f32785b4260a">
+        <dex dex="/home/cristina/AndroidStudioProjects/newGithub/Imaginarium/AndroidApp/Imaginarium/Application/build/intermediates/pre-dexed/debug/classes-549857034526c19e8cfd569b56b39a84ce7521d3.jar" />
+    </item>
+    <item
+        jar="/home/cristina/AndroidStudioProjects/newGithub/Imaginarium/AndroidApp/Imaginarium/Application/build/intermediates/exploded-aar/com.google.android.gms/play-services-panorama/7.0.0/classes.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="1c5a76debf0c2857ccad422c4a80ed785982f8df">
+        <dex dex="/home/cristina/AndroidStudioProjects/newGithub/Imaginarium/AndroidApp/Imaginarium/Application/build/intermediates/pre-dexed/debug/classes-b727d3294326541115e32e8c5c40ae64c4e38685.jar" />
     </item>
     <item
         jar="/home/cristina/.gradle/caches/modules-2/files-2.1/org.springframework.android/spring-android-rest-template/1.0.1.RELEASE/e132d929bd181941f79b0d63edafb8a86ae6fd33/spring-android-rest-template-1.0.1.RELEASE.jar"
@@ -58,39 +149,11 @@
         <dex dex="/home/cristina/AndroidStudioProjects/newGithub/Imaginarium/AndroidApp/Imaginarium/Application/build/intermediates/pre-dexed/debug/classes-c1da5c4126b21652f008ff8a8b24738ba6c53e23.jar" />
     </item>
     <item
-        jar="/home/cristina/AndroidStudioProjects/newGithub/Imaginarium/AndroidApp/Imaginarium/Application/build/intermediates/exploded-aar/com.google.android.gms/play-services-maps/7.0.0/classes.jar"
-        jumboMode="false"
-        revision="22.0.1"
-        sha1="17f8750d5c0749e44dd7c54aa390d9c937803825">
-        <dex dex="/home/cristina/AndroidStudioProjects/newGithub/Imaginarium/AndroidApp/Imaginarium/Application/build/intermediates/pre-dexed/debug/classes-a17f1dcd681553433fad5c75719041b4cebf45c0.jar" />
-    </item>
-    <item
         jar="/home/cristina/AndroidStudioProjects/newGithub/Imaginarium/AndroidApp/Imaginarium/Application/build/intermediates/exploded-aar/com.google.android.gms/play-services-location/7.0.0/classes.jar"
         jumboMode="false"
         revision="22.0.1"
         sha1="73ccb92b70112f2e463e415ef8d7275de7da6516">
         <dex dex="/home/cristina/AndroidStudioProjects/newGithub/Imaginarium/AndroidApp/Imaginarium/Application/build/intermediates/pre-dexed/debug/classes-594009092f3a0e3531b02ab484aa17635805c9ad.jar" />
-    </item>
-    <item
-        jar="/home/cristina/AndroidStudioProjects/newGithub/Imaginarium/AndroidApp/Imaginarium/Application/build/intermediates/exploded-aar/com.google.android.gms/play-services-wallet/7.0.0/classes.jar"
-        jumboMode="false"
-        revision="22.0.1"
-        sha1="a96b762bde4139de855735f175ec4d17dca55a6d">
-        <dex dex="/home/cristina/AndroidStudioProjects/newGithub/Imaginarium/AndroidApp/Imaginarium/Application/build/intermediates/pre-dexed/debug/classes-4f55a50353587ffd6b99bc233f66510bcb7889fd.jar" />
-    </item>
-    <item
-        jar="/home/cristina/AndroidStudioProjects/newGithub/Imaginarium/AndroidApp/Imaginarium/Application/build/intermediates/exploded-aar/com.google.android.gms/play-services-safetynet/7.0.0/classes.jar"
-        jumboMode="false"
-        revision="22.0.1"
-        sha1="c976518693e89ad44fbfccfc654941eaec198d08">
-        <dex dex="/home/cristina/AndroidStudioProjects/newGithub/Imaginarium/AndroidApp/Imaginarium/Application/build/intermediates/pre-dexed/debug/classes-91c9571d05d792996acbe3f9be1c9a788d4d2d95.jar" />
-    </item>
-    <item
-        jar="/home/cristina/.gradle/caches/modules-2/files-2.1/com.fasterxml.jackson.core/jackson-databind/2.3.2/c75edc740a6d8cb1cef6fa82fa594e0bce561916/jackson-databind-2.3.2.jar"
-        jumboMode="false"
-        revision="22.0.1"
-        sha1="c75edc740a6d8cb1cef6fa82fa594e0bce561916">
-        <dex dex="/home/cristina/AndroidStudioProjects/newGithub/Imaginarium/AndroidApp/Imaginarium/Application/build/intermediates/pre-dexed/debug/jackson-databind-2.3.2-41afb070db2cda673212c6099d0ec8d4c727d59d.jar" />
     </item>
     <item
         jar="/home/cristina/AndroidStudioProjects/newGithub/Imaginarium/AndroidApp/Imaginarium/Application/build/intermediates/exploded-aar/com.google.android.gms/play-services-wearable/7.0.0/classes.jar"
@@ -100,25 +163,11 @@
         <dex dex="/home/cristina/AndroidStudioProjects/newGithub/Imaginarium/AndroidApp/Imaginarium/Application/build/intermediates/pre-dexed/debug/classes-cc9d5d19bf3a54b311b13154521792996cc1b758.jar" />
     </item>
     <item
-        jar="/home/cristina/.gradle/caches/modules-2/files-2.1/org.apache.httpcomponents/httpclient-android/4.3.5.1/eecbb0b998e77629862a13d957d552b3be58fc4e/httpclient-android-4.3.5.1.jar"
-        jumboMode="false"
-        revision="22.0.1"
-        sha1="eecbb0b998e77629862a13d957d552b3be58fc4e">
-        <dex dex="/home/cristina/AndroidStudioProjects/newGithub/Imaginarium/AndroidApp/Imaginarium/Application/build/intermediates/pre-dexed/debug/httpclient-android-4.3.5.1-074103ceb87f063f06ff4860aa27516c9b5b8052.jar" />
-    </item>
-    <item
         jar="/home/cristina/AndroidStudioProjects/newGithub/Imaginarium/AndroidApp/Imaginarium/Application/build/intermediates/exploded-aar/com.android.support/support-v4/22.0.0/classes.jar"
         jumboMode="false"
         revision="22.0.1"
         sha1="4e86306289ace4aa0cfec44a05ed2b410d36989d">
         <dex dex="/home/cristina/AndroidStudioProjects/newGithub/Imaginarium/AndroidApp/Imaginarium/Application/build/intermediates/pre-dexed/debug/classes-c7ddb8de249b32dd74e5565a8e8dcc197e9e65a6.jar" />
-    </item>
-    <item
-        jar="/home/cristina/AndroidStudioProjects/newGithub/Imaginarium/AndroidApp/Imaginarium/Application/build/intermediates/exploded-aar/com.google.android.gms/play-services-drive/7.0.0/classes.jar"
-        jumboMode="false"
-        revision="22.0.1"
-        sha1="41b3870cbe5fa546d8095b5b89d42cb69f3dd175">
-        <dex dex="/home/cristina/AndroidStudioProjects/newGithub/Imaginarium/AndroidApp/Imaginarium/Application/build/intermediates/pre-dexed/debug/classes-9ec0c20368017097b076a712d87c2df807d82f70.jar" />
     </item>
     <item
         jar="/home/cristina/AndroidStudioProjects/newGithub/Imaginarium/AndroidApp/Imaginarium/Application/build/intermediates/exploded-aar/com.google.android.gms/play-services-ads/7.0.0/classes.jar"
@@ -128,13 +177,6 @@
         <dex dex="/home/cristina/AndroidStudioProjects/newGithub/Imaginarium/AndroidApp/Imaginarium/Application/build/intermediates/pre-dexed/debug/classes-a5be8836d645e08fbaa61a601e39c3ee8f9e537c.jar" />
     </item>
     <item
-        jar="/home/cristina/.gradle/caches/modules-2/files-2.1/com.fasterxml.jackson.core/jackson-annotations/2.3.0/f5e853a20b60758922453d56f9ae1e64af5cb3da/jackson-annotations-2.3.0.jar"
-        jumboMode="false"
-        revision="22.0.1"
-        sha1="f5e853a20b60758922453d56f9ae1e64af5cb3da">
-        <dex dex="/home/cristina/AndroidStudioProjects/newGithub/Imaginarium/AndroidApp/Imaginarium/Application/build/intermediates/pre-dexed/debug/jackson-annotations-2.3.0-b596f8dd834d342066a1d3fd32da0cdfb4fa96c4.jar" />
-    </item>
-    <item
         jar="/home/cristina/AndroidStudioProjects/newGithub/Imaginarium/AndroidApp/Imaginarium/Application/build/intermediates/exploded-aar/com.android.support/appcompat-v7/22.0.0/classes.jar"
         jumboMode="false"
         revision="22.0.1"
@@ -142,25 +184,11 @@
         <dex dex="/home/cristina/AndroidStudioProjects/newGithub/Imaginarium/AndroidApp/Imaginarium/Application/build/intermediates/pre-dexed/debug/classes-7b6a7dedf7f6928f5395e8fa7ac6588b0ec70b81.jar" />
     </item>
     <item
-        jar="/home/cristina/.gradle/caches/modules-2/files-2.1/org.apache.httpcomponents/httpmime/4.3.6/cf8bacbf0d476c7f2221f861269365b66447f7ec/httpmime-4.3.6.jar"
-        jumboMode="false"
-        revision="22.0.1"
-        sha1="cf8bacbf0d476c7f2221f861269365b66447f7ec">
-        <dex dex="/home/cristina/AndroidStudioProjects/newGithub/Imaginarium/AndroidApp/Imaginarium/Application/build/intermediates/pre-dexed/debug/httpmime-4.3.6-36a0f8cbf6e72f74ddf3bbade88b6728576520be.jar" />
-    </item>
-    <item
         jar="/home/cristina/AndroidStudioProjects/newGithub/Imaginarium/AndroidApp/Imaginarium/Application/build/intermediates/exploded-aar/com.android.support/support-v4/22.0.0/libs/internal_impl-22.0.0.jar"
         jumboMode="false"
         revision="22.0.1"
         sha1="b5b92f469d515a13d778900f6d50c03d12f35504">
         <dex dex="/home/cristina/AndroidStudioProjects/newGithub/Imaginarium/AndroidApp/Imaginarium/Application/build/intermediates/pre-dexed/debug/internal_impl-22.0.0-3165a48ec69e21a6f5bb1c1a3428429eb7604cf6.jar" />
-    </item>
-    <item
-        jar="/home/cristina/AndroidStudioProjects/newGithub/Imaginarium/AndroidApp/Imaginarium/Application/build/intermediates/exploded-aar/com.google.android.gms/play-services-base/7.0.0/classes.jar"
-        jumboMode="false"
-        revision="22.0.1"
-        sha1="4c93d99d454c975536bbe3b42283eee847f03ea3">
-        <dex dex="/home/cristina/AndroidStudioProjects/newGithub/Imaginarium/AndroidApp/Imaginarium/Application/build/intermediates/pre-dexed/debug/classes-07e08350ce913a325a076b6b7109928b7383600a.jar" />
     </item>
     <item
         jar="/home/cristina/AndroidStudioProjects/newGithub/Imaginarium/AndroidApp/Imaginarium/Application/build/intermediates/exploded-aar/com.google.android.gms/play-services-appindexing/7.0.0/classes.jar"
@@ -175,34 +203,6 @@
         revision="22.0.1"
         sha1="3c0b099f9de16b265ecd6122fcb603e7d0d29f90">
         <dex dex="/home/cristina/AndroidStudioProjects/newGithub/Imaginarium/AndroidApp/Imaginarium/Application/build/intermediates/pre-dexed/debug/classes-c84625c784cf2f37a081583f7836f5e548d620d4.jar" />
-    </item>
-    <item
-        jar="/home/cristina/AndroidStudioProjects/newGithub/Imaginarium/AndroidApp/Imaginarium/Application/build/intermediates/exploded-aar/com.google.android.gms/play-services-identity/7.0.0/classes.jar"
-        jumboMode="false"
-        revision="22.0.1"
-        sha1="fb04b12526b0073c7fb1ebb70c5842d82ee95596">
-        <dex dex="/home/cristina/AndroidStudioProjects/newGithub/Imaginarium/AndroidApp/Imaginarium/Application/build/intermediates/pre-dexed/debug/classes-54e3d7d6f165ba1c7b4497502709f0d33911beb6.jar" />
-    </item>
-    <item
-        jar="/home/cristina/.gradle/caches/modules-2/files-2.1/org.springframework.android/spring-android-core/1.0.1.RELEASE/e68f0e8e4b636ee30c4de58953be38d9b72a5e3b/spring-android-core-1.0.1.RELEASE.jar"
-        jumboMode="false"
-        revision="22.0.1"
-        sha1="e68f0e8e4b636ee30c4de58953be38d9b72a5e3b">
-        <dex dex="/home/cristina/AndroidStudioProjects/newGithub/Imaginarium/AndroidApp/Imaginarium/Application/build/intermediates/pre-dexed/debug/spring-android-core-1.0.1.RELEASE-c6b2d84e85fcd0c7a72e868b1c6cc6a998d722d2.jar" />
-    </item>
-    <item
-        jar="/home/cristina/.gradle/caches/modules-2/files-2.1/com.fasterxml.jackson.core/jackson-core/2.3.2/559b70ac8a0d5cad611da4223137a920147201ba/jackson-core-2.3.2.jar"
-        jumboMode="false"
-        revision="22.0.1"
-        sha1="559b70ac8a0d5cad611da4223137a920147201ba">
-        <dex dex="/home/cristina/AndroidStudioProjects/newGithub/Imaginarium/AndroidApp/Imaginarium/Application/build/intermediates/pre-dexed/debug/jackson-core-2.3.2-6c42a200a9f94da5f7821c57b2003e53c538d8b4.jar" />
-    </item>
-    <item
-        jar="/home/cristina/AndroidStudioProjects/newGithub/Imaginarium/AndroidApp/Imaginarium/Application/build/intermediates/exploded-aar/com.google.android.gms/play-services-cast/7.0.0/classes.jar"
-        jumboMode="false"
-        revision="22.0.1"
-        sha1="4cd0b093824b3228fffc21ea369b98d0b1db6566">
-        <dex dex="/home/cristina/AndroidStudioProjects/newGithub/Imaginarium/AndroidApp/Imaginarium/Application/build/intermediates/pre-dexed/debug/classes-5880ed6e11a1f0874a802cb3c912fc38025b11c9.jar" />
     </item>
     <item
         jar="/home/cristina/AndroidStudioProjects/newGithub/Imaginarium/AndroidApp/Imaginarium/Application/build/intermediates/exploded-aar/com.google.android.gms/play-services-appstate/7.0.0/classes.jar"

@@ -77,23 +77,17 @@ public class NewStory extends Fragment {
                 }
             }
         });
-       // getActivity().getActionBar().setTitle("NewStory");
-        Log.d("[NewStory]", "OnCreateView");
         return V;
     }
 
     @Override
     public void onStart() {
         super.onStart();
-        //getActivity().getActionBar().setTitle("NewStory");
-        Log.d("[NewStory]", "OnStart");
     }
 
     @Override
     public void onResume() {
         super.onResume();
-        //getActivity().getActionBar().setTitle("Imaginarium");
-        Log.d("[NewStory]", "OnResume");
     }
 
 

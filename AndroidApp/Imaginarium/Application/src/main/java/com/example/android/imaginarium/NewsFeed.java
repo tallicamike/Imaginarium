@@ -58,8 +58,6 @@ public class NewsFeed extends Fragment {
         gid = bundle.getString("gid");
         username = bundle.getString("username");
         friendList = bundle.getString("friends");
-//        Log.d("[Friends] ", friendList);
-
         // Construct the data source
         arrayOfStories = new ArrayList<Story_Info>();
         // Create the adapter to convert the array to views
@@ -73,14 +71,11 @@ public class NewsFeed extends Fragment {
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                //Log.d("Click", "Clicked");
-                //TextView tv = (TextView) view.findViewById(R.id.id_title);
                 LinearLayout ll = (LinearLayout) listView.getChildAt(position);
                 TextView tv = (TextView) ll.findViewById(R.id.id_title);
 
                 String story_title = tv.getText().toString();
 
-                Log.d("[storyyyyy]", story_title);
                 String story_id = "";
 
                 for (ClientStory cs : data.getStories()) {
@@ -88,8 +83,6 @@ public class NewsFeed extends Fragment {
                         story_id = "" + cs.getStoryId();
                 }
 
-                //Log.d("Click", "text is " + text);
-                //Toast.makeText(getActivity().getApplicationContext(), text, Toast.LENGTH_SHORT);
                 Bundle bundle = new Bundle();
                 Intent myIntent;
                 if (is_newsfeed == 0)
@@ -99,19 +92,10 @@ public class NewsFeed extends Fragment {
 
                 bundle.putString("gid", gid);
                 bundle.putString("username", username);
-
-                //Log.d("[NewsFeed -log]", gid + " " + username);
-
                 bundle.putString("story_title", story_title);
-
-
-
-
-                Log.d("[ID gasit]", story_id + " " + story_title);
 
                 bundle.putString("story_id", story_id);
 
-                //bundle.putParcelableArrayList("fragments", new ArrayList<Story_Fragment>());
                 myIntent.putExtras(bundle);
 
                 startActivity(myIntent);
@@ -127,12 +111,10 @@ public class NewsFeed extends Fragment {
         @Override
         protected NewsFeedData doInBackground(Void... params) {
             try {
-               // Log.d("[Main]", "Send URL");
                 final String url = "http://tallica.koding.io:8080/get_friends_stories?gid=" +
                         gid +
                         "&friends=";
 
-                //Log.d("[Newsfeed URL] ", url);
                 RestTemplate restTemplate = new RestTemplate();
                 restTemplate.getMessageConverters().add(new MappingJackson2HttpMessageConverter());
                 data  = restTemplate.getForObject(url, NewsFeedData.class);
@@ -229,26 +211,6 @@ class Story_newsfeed_prev_adapter extends ArrayAdapter<Story_Info> {
         participants.setText(parts);
         started.setText(story.started);
         last.setText(story.last);
-
-
-
-//        ((ListView)convertView).setOnItemClickListener(new AdapterView.OnItemClickListener() {
-//            @Override
-//            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-//                TextView tv = (TextView) view.findViewById(R.id.id_title);
-//                String text = tv.getText().toString();
-//                Toast.makeText(getContext(), text, Toast.LENGTH_SHORT);
-//            }
-//        });
-
-//        convertView.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                TextView tv = (TextView) v.findViewById(R.id.id_title);
-//                String text = tv.getText().toString();
-//                Toast.makeText(getContext(), text, Toast.LENGTH_SHORT);
-//            }
-//        });
 
         // Return the completed view to render on screen
         return convertView;

@@ -68,14 +68,6 @@ public class ChatActivity extends Activity {
 
 
     TextView uploaded_picture;
-//    public void setGid(String gid) {
-//        this.gid = gid;
-//    }
-//
-//    public void setUserName(String username) {
-//        this.username = username;
-//    }
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -152,7 +144,6 @@ public class ChatActivity extends Activity {
             if (requestCode == 1) {
                 picture_URI = data.getData();
                 uploaded_picture.setText("Uploaded: " +  picture_URI.toString());
-                Toast.makeText(getApplicationContext(), data.getDataString(), Toast.LENGTH_LONG);
             }
         }
 
@@ -185,9 +176,6 @@ public class ChatActivity extends Activity {
         @Override
         protected Void doInBackground(Void... params) {
             try {
-//                final String url = "http://tallica.koding.io:8080/create_user?gid=" + gid;
-                Log.d("[Main]", "Send URL " + gid);
-
                 final String url = "http://tallica.koding.io:8080/continue_story?gid=" +
                         gid +
                         "&story_id=" +
@@ -218,7 +206,6 @@ public class ChatActivity extends Activity {
         @Override
         protected ClientStory doInBackground(Void... params) {
             try {
-                // Log.d("[Main]", "Send URL");
                 final String url = "http://tallica.koding.io:8080//get_story?story_id=" +
                         story_id;
 
@@ -233,20 +220,20 @@ public class ChatActivity extends Activity {
 
                         listView.setAdapter(null);
                         arrayOfFragments.clear();
-                        Log.d("[nr fragm]", "" + clientStory.getFragments().size());
-                        if (clientStory.getFragments().size() > 0) {
+                        if (clientStory != null  && clientStory.getFragments() != null) {
+                            if (clientStory.getFragments().size() > 0) {
 
-                            for (ClientFragment cf : clientStory.getFragments()) {
+                                for (ClientFragment cf : clientStory.getFragments()) {
 
-                                Story_Fragment sf = new Story_Fragment(0, cf.getAuthorName(),
-                                        cf.getText(),
-                                        0, null);
+                                    Story_Fragment sf = new Story_Fragment(0, cf.getAuthorName(),
+                                            cf.getText(),
+                                            0, null);
 
-                                arrayOfFragments.add(sf);
+                                    arrayOfFragments.add(sf);
 
+                                }
                             }
                         }
-
                         adapter = new Story_fragment_adapter(getApplicationContext(), arrayOfFragments);
                         listView.setAdapter(adapter);
 

@@ -132,11 +132,6 @@ public class MainActivity extends SampleActivityBase
 
     private boolean loginDisplayed;
     private boolean notifyServer;
-//    private TextView mStatus;
-//    private ListView mCirclesListView;
-//    private ArrayAdapter<String> mCirclesAdapter;
-//    private ArrayList<String> mCirclesList;
-
 
     private Person currentUser;
     private String gid;
@@ -155,17 +150,7 @@ public class MainActivity extends SampleActivityBase
         if (! loginDisplayed)
             return;
 
-//        ViewGroup parentView = (ViewGroup) mSignInButton.getParent();
         parentView.removeView(mSignInButton);
-
-//        mSignInButton.setVisibility(View.INVISIBLE);
-
-//        parentView = (ViewGroup) welcome.getParent();
-//        parentView.removeView(welcome);
-//
-//        parentView = (ViewGroup) instructions.getParent();
-//        parentView.removeView(instructions);
-//        separation_bar.setVisibility(View.VISIBLE);
 
         parentView.addView(separation_bar);
         loginDisplayed = false;
@@ -179,7 +164,6 @@ public class MainActivity extends SampleActivityBase
 
         parentView.addView(mSignInButton);
         parentView.removeView(separation_bar);
-//        separation_bar.setVisibility(View.INVISIBLE);
 
         loginDisplayed = true;
     }
@@ -268,7 +252,6 @@ public class MainActivity extends SampleActivityBase
             // between connected and not connected.
             switch (v.getId()) {
                 case R.id.sign_in_button:
-//                    mStatus.setText(R.string.status_signing_in);
                     mSignInProgress = STATE_SIGN_IN;
                     mGoogleApiClient.connect();
                     break;
@@ -307,17 +290,11 @@ public class MainActivity extends SampleActivityBase
         slidingTabsColorsFragment.setUsername(username);
         slidingTabsColorsFragment.setFriends(friendList);
 
-//        mStatus.setText(String.format(
-//                getResources().getString(R.string.signed_in_as),
-//                currentUser.getDisplayName()));
-
         Plus.PeopleApi.loadVisible(mGoogleApiClient, null)
                 .setResultCallback(this);
 
         // Indicate that the sign in process is complete.
         mSignInProgress = STATE_DEFAULT;
-
-        //Toast.makeText(this, "[Login] Successful", Toast.LENGTH_LONG);
 
         FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
 
@@ -459,10 +436,6 @@ public class MainActivity extends SampleActivityBase
         transaction.commit();
 
         signOutUpdateLayout();
-//        mStatus.setText(R.string.status_signed_out);
-//
-//        mCirclesList.clear();
-//        mCirclesAdapter.notifyDataSetChanged();
     }
 
     @Override
@@ -484,7 +457,6 @@ public class MainActivity extends SampleActivityBase
                         public void onCancel(DialogInterface dialog) {
                             Log.e(TAG, "Google Play services resolution cancelled");
                             mSignInProgress = STATE_DEFAULT;
-//                            mStatus.setText(R.string.status_signed_out);
                         }
                     });
         } else {
@@ -544,8 +516,6 @@ public class MainActivity extends SampleActivityBase
         @Override
         protected Void doInBackground(Void... params) {
             try {
-//                final String url = "http://tallica.koding.io:8080/create_user?gid=" + gid;
-                Log.d("[Main]", "Send URL");
                 final String url = "http://tallica.koding.io:8080/create_user?gname=" +
                         username +
                         "&gid=" + gid;
@@ -564,11 +534,6 @@ public class MainActivity extends SampleActivityBase
 
         @Override
         protected void onPostExecute(Void v) {
-//            TextView greetingIdText = (TextView) findViewById(R.id.id_value);
-//            TextView greetingContentText = (TextView) findViewById(R.id.content_value);
-//            greetingIdText.setText(greeting.getId());
-//            greetingContentText.setText(greeting.getContent());
-//              Log.d("[Recieved]", userinfo.getId() + " " + userinfo.getName());
         }
 
     }

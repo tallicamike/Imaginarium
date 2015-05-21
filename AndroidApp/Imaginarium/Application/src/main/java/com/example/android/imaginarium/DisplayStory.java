@@ -59,10 +59,7 @@ public class DisplayStory extends Activity {
         story_title = "Default_story_title";
         if (extras != null) {
             gid = extras.getString("gid");
-            Log.d("[DisplayStory] gid ", gid);
             username = extras.getString("username");
-            Log.d("[DisplayStory] username", username);
-
             story_title = extras.getString("story_title");
             story_id = extras.getString("story_id");
         }
@@ -87,14 +84,11 @@ public class DisplayStory extends Activity {
                         new Intent(new Intent(DisplayStory.this, ChatActivity.class));
 
                 Bundle bundle = new Bundle();
-                //myIntent.putExtra("story_title", story_title);
                 bundle.putString("gid", gid);
                 bundle.putString("username", username);
                 bundle.putString("story_title", story_title);
                 bundle.putString("story_id", story_id);
 
-                //myIntent.putParcelableArrayListExtra("fragments", arrayOfFragments);
-                //bundle.putParcelableArrayList("fragments", arrayOfFragments);
                 myIntent.putExtras(bundle);
                 startActivity(myIntent);
             }
@@ -128,7 +122,6 @@ public class DisplayStory extends Activity {
         @Override
         protected ClientStory doInBackground(Void... params) {
             try {
-                // Log.d("[Main]", "Send URL");
                 final String url = "http://tallica.koding.io:8080//get_story?story_id=" +
                         story_id;
 
@@ -143,7 +136,6 @@ public class DisplayStory extends Activity {
 
                         listView.setAdapter(null);
                         arrayOfFragments.clear();
-                        Log.d("[nr fragm]", "" + clientStory.getFragments().size());
                         if (clientStory.getFragments().size() > 0) {
 
                             for (ClientFragment cf : clientStory.getFragments()) {

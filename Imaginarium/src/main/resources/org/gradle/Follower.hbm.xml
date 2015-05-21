@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated May 20, 2015 1:19:23 PM by Hibernate Tools 3.6.0 -->
+<hibernate-mapping>
+    <class name="org.gradle.Follower" table="Follower" catalog="Imaginarium">
+        <id name="id" type="java.lang.Integer">
+            <column name="id" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="user" class="org.gradle.User" fetch="select">
+            <column name="id_user" not-null="true" />
+        </many-to-one>
+        <many-to-one name="story" class="org.gradle.Story" fetch="select">
+            <column name="id_story" not-null="true" />
+        </many-to-one>
+    </class>
+</hibernate-mapping>

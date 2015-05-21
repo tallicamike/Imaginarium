@@ -1,0 +1,52 @@
+buildscript {
+    repositories {
+        mavenCentral()
+    }
+    dependencies {
+        classpath("org.springframework.boot:spring-boot-gradle-plugin:1.2.3.RELEASE")
+    }
+}
+apply plugin: 'java'
+apply plugin: 'eclipse'
+apply plugin: 'application'
+apply plugin: 'idea'
+apply plugin: 'spring-boot'
+
+
+sourceCompatibility = 1.7
+targetCompatibility = 1.7
+version = '1.0'
+
+jar {
+    /*manifest {
+        attributes 'Implementation-Title': 'Gradle Quickstart',
+                   'Implementation-Version': version
+        //attributes 'Main-Class' : 'org.gradle.DBtest'
+        
+    }*/
+    baseName = project.name + '-all'
+    from { configurations.compile.collect { it.isDirectory() ? it : zipTree(it) } }
+}
+
+    
+
+
+springBoot{
+	mainClass ="org.gradle.Application"
+}
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    compile 'org.hibernate:hibernate-core:3.6.7.Final'
+    compile 'mysql:mysql-connector-java:5.1.35'
+    compile 'javassist:javassist:3.12.1.GA'
+    compile("org.springframework.boot:spring-boot-starter-web")
+}
+
+task wrapper(type: Wrapper) {
+    gradleVersion = '2.3'
+}
+
